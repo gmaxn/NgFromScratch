@@ -1,5 +1,5 @@
 <div id="component-wrapper">
-    
+
     <label id="search-term" for="">Filter Term: {{filterTerm}}</label>
 
     <div id="person-grid-wrapper" class="show-margins">
@@ -10,14 +10,22 @@
         </div>
 
         <div class="layout" id="table-wrapper">
-            <table>
+            <table *ngIf='products && products.length'>
                 <thead>
                     <th>Image</th>
                     <th>Name</th>
+                    <th>Code</th>
                     <th>Price</th>
                     <th>Stock</th>
                 </thead>
                 <tbody>
+                    <tr *ngFor='let product of products'>
+                        <td>-</td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.code}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.stock}}</td>
+                    </tr>
 
                 </tbody>
             </table>
