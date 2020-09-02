@@ -5,7 +5,8 @@
     <div id="person-grid-wrapper" class="show-margins">
 
         <div class="layout" id="search-bar">
-            <input type="text" name="" id="search" placeholder='Filet by...'>
+            <input type="text"
+            [(ngModel)]='filterTerm' name="" id="search" placeholder='Filet by...'>
 
             <button (click)='toggleImage()'>
                 {{showImage ? 'Hide' : 'Show'}} Image
@@ -14,7 +15,9 @@
         </div>
 
         <div class="layout" id="table-wrapper">
+
             <table *ngIf='products && products.length'>
+
                 <thead>
                     <th>Image</th>
                     <th>Name</th>
@@ -29,13 +32,15 @@
                             [src]='product.imageUrl' [title]='product.name'
                             [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
                         </td>
-                        <td>{{product.name}}</td>
-                        <td>{{product.code}}</td>
-                        <td>{{product.price}}</td>
-                        <td>{{product.stock}}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.code | lowercase }}</td>
+                        <td>{{ product.price | currency: 'USD' : 'symbol' : '1.2-2' }}</td>
+                        <td>{{ product.stock }}</td>
                     </tr>
                 </tbody>
+
             </table>
+
         </div>
 
     </div>
