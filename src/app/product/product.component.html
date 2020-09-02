@@ -6,7 +6,7 @@
 
         <div class="layout" id="search-bar">
             <input type="text"
-            [(ngModel)]='filterTerm' name="" id="search" placeholder='Filet by...'>
+            [(ngModel)]='filterTerm' name="" id="search" placeholder='Filter by. . .'>
 
             <button (click)='toggleImage()'>
                 {{showImage ? 'Hide' : 'Show'}} Image
@@ -32,8 +32,8 @@
                             [src]='product.imageUrl' [title]='product.name'
                             [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
                         </td>
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.code | lowercase }}</td>
+                        <td>{{ product.productName }}</td>
+                        <td>{{ product.productCode | lowercase }}</td>
                         <td>{{ product.price | currency: 'USD' : 'symbol' : '1.2-2' }}</td>
                         <td>{{ product.stock }}</td>
                     </tr>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IProduct } from './product';
 
 @Component({
   selector: 'app-product',
@@ -10,11 +11,11 @@ export class ProductComponent {
   imageMargin: number = 5;
   showImage: boolean = false;
   filterTerm: string = 'Cart';
-  products: any[] = [
+  products: IProduct[] = [
     {
       "productId": 1,
-      "name": "Samsung Galaxy S20 Ultra",
-      "code": "CEL-001",
+      "productName": "Samsung Galaxy S20 Ultra",
+      "productCode": "CEL-001",
       "releaseDate": "March 18, 2019",
       "price": 899.99,
       "stock": 10,
@@ -22,8 +23,8 @@ export class ProductComponent {
     },
     {
       "productId": 2,
-      "name": "IPhone 11 Pro",
-      "code": "CEL-002",
+      "productName": "IPhone 11 Pro",
+      "productCode": "CEL-002",
       "releaseDate": "January 15, 2019",
       "price": 1199.95,
       "stock": 10,
