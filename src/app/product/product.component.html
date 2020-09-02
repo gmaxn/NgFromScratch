@@ -6,7 +6,11 @@
 
         <div class="layout" id="search-bar">
             <input type="text" name="" id="search" placeholder='Filet by...'>
-            <button>Show Image</button>
+
+            <button (click)='toggleImage()'>
+                {{showImage ? 'Hide' : 'Show'}} Image
+            </button>
+
         </div>
 
         <div class="layout" id="table-wrapper">
@@ -18,19 +22,21 @@
                     <th>Price</th>
                     <th>Stock</th>
                 </thead>
+
                 <tbody>
                     <tr *ngFor='let product of products'>
-                        <td>-</td>
+                        <td><img *ngIf='showImage'
+                            [src]='product.imageUrl' [title]='product.name'
+                            [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
+                        </td>
                         <td>{{product.name}}</td>
                         <td>{{product.code}}</td>
                         <td>{{product.price}}</td>
                         <td>{{product.stock}}</td>
                     </tr>
-
                 </tbody>
             </table>
         </div>
 
     </div>
-
 </div>
