@@ -10,7 +10,19 @@ export class ProductComponent {
   imageWidth: number = 100;
   imageMargin: number = 5;
   showImage: boolean = false;
-  filterTerm: string = 'Cart';
+  
+  _filterTerm: string = 'Cart';
+  
+  get filterTerm(): string {
+    return this._filterTerm;
+  }
+  
+  set filterTerm(value: string) {
+    this._filterTerm = value;
+    this.filteredProducts = this.filterTerm ? this.performFilter(this._filterTerm) : this.products;
+  }
+  
+  filteredProducts: IProduct[];
   products: IProduct[] = [
     {
       "productId": 1,
@@ -32,8 +44,18 @@ export class ProductComponent {
     }
   ]
 
+  constructor() {
+    this.filteredProducts = this.products;
+    this._filterTerm = 'Cart';
+  }
+  performFilter(filterBy: string): IProduct[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.products.filter((product: IProduct) => 
+           product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+  }
+
   toggleImage(): void {
     this.showImage = !this.showImage;
   }
-
+  
 }
