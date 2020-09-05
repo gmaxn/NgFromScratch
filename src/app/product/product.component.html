@@ -37,7 +37,7 @@
                         <td>{{ product.productCode | lowercase | convertToSpaces: '-' }}</td>
                         <td>{{ product.price | currency: 'USD' : 'symbol' : '1.2-2' }}</td>
                         <td>{{ product.stock }}</td>
-                        <td><app-star></app-star></td>
+                        <td><app-star [rating]='product.rating'></app-star></td>
                     </tr>
                 </tbody>
 
