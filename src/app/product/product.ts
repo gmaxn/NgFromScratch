@@ -4,6 +4,7 @@ export interface IProduct {
     productCode: string;
     releaseDate: string;
     price: number;
+    rating: number;
     stock: number;
     imageUrl: string;
 }
@@ -15,6 +16,7 @@ export class Product implements IProduct {
                 public productCode: string,
                 public releaseDate: string,
                 public price: number,
+                public rating: number,
                 public stock: number,
                 public imageUrl: string) {
 
