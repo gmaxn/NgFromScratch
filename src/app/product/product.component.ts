@@ -59,5 +59,9 @@ export class ProductComponent {
   toggleImage(): void {
     this.showImage = !this.showImage;
   }
+
+  onNotify(message: string) : void {
+    this.filterTerm = message;
+  }
   
 }
