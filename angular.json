@@ -22,7 +22,8 @@
             "assets": [
               "src/favicon.ico",
               "src/unnamed.jpg",
-              "src/assets"
+              "src/assets",
+              "src/api"
             ],
             "styles": [
               "src/styles.css"

@@ -11,6 +11,7 @@ export class ProductComponent implements OnInit {
   imageWidth: number = 100;
   imageMargin: number = 5;
   showImage: boolean = false;
+  errorMessage: string;
 
   _filterTerm: string;
 
@@ -30,8 +31,13 @@ export class ProductComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
-    this.filteredProducts = this.products;
+    this.productService.getProducts().subscribe({
+      next: products => { 
+        this.products = products;
+        this.filteredProducts = this.products;
+      }, 
+      error: err => this.errorMessage = err
+    });
   }
 
   onNotify(message: string): void {
