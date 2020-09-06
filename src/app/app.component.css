@@ -1,0 +1,33 @@
+
+
+#search-bar {
+  display: flex;
+  align-items: flex-end;
+  background-color: black;
+}
+
+.nav-pill {
+  width: 15%;
+  border: 2px solid whitesmoke;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+  font-family: "Consolas", Courier, monospace;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.nav-pill:hover{
+    background-color: seagreen;
+}
+
+.nav-brand {
+    width: 15%;
+    text-align: center;
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    font-family: "Consolas", Courier, monospace;
+    font-weight: bolder;
+}

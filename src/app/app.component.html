@@ -6,12 +6,15 @@
     padding: 5px;
     margin-bottom: 5px;
   }
-
 </style>
 
 <!-- Toolbar -->
 <div class="toolbar layout" role="banner" id="starter-nav">
-  nav..
+  <div class="layout" id="search-bar">
+    <div class="nav-brand">{{pageTitle}}</div>
+    <div class="nav-pill" [routerLink]="['/welcome']">Home</div>
+    <div class="nav-pill" [routerLink]="['/products']">Product List</div>
+  </div>
 </div>
 
 <div class="content layout" role="main" id="starter-main">
