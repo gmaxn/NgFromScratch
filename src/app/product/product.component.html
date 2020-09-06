@@ -5,8 +5,7 @@
     <div id="person-grid-wrapper" class="show-margins">
 
         <div class="layout" id="search-bar">
-            <input type="text"
-            [(ngModel)]='filterTerm' name="" id="search" placeholder='Filter by. . .'>
+            <input type="text" [(ngModel)]='filterTerm' name="" id="search" placeholder='Filter by. . .'>
 
             <button (click)='toggleImage()'>
                 {{showImage ? 'Hide' : 'Show'}} Image
@@ -29,15 +28,20 @@
 
                 <tbody>
                     <tr *ngFor='let product of filteredProducts'>
-                        <td><img *ngIf='showImage'
-                            [src]='product.imageUrl' [title]='product.name'
-                            [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
+                        <td><img *ngIf='showImage' [src]='product.imageUrl' [title]='product.name'
+                                [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
                         </td>
-                        <td>{{ product.productName }}</td>
+                        <td>
+                            <a [routerLink]="['/products', product.productId]">
+                                {{ product.productName }}
+                            </a>
+                        </td>
                         <td>{{ product.productCode | lowercase | convertToSpaces: '-' }}</td>
                         <td>{{ product.price | currency: 'USD' : 'symbol' : '1.2-2' }}</td>
                         <td>{{ product.stock }}</td>
-                        <td><app-star [rating]='product.rating' (notify)='onNotify($event)'></app-star></td>
+                        <td>
+                            <app-star [rating]='product.rating' (notify)='onNotify($event)'></app-star>
+                        </td>
                     </tr>
                 </tbody>
 
